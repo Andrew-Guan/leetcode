@@ -1,4 +1,5 @@
-Lesson:
+method1:
+
 1. We need to check array is null or not first, or it will lead to a nullexception.
 For example:
     public List<Integer> spiralOrder(int[][] matrix) {

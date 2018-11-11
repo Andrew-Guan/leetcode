@@ -1,4 +1,4 @@
-Lessons:
+method1:
 
 1. When I want to create a one dimention array with size 1. 
 I initial the array in this way: int[] res = new int[0]; res[0] = 1;
