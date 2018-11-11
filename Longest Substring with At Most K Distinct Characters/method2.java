@@ -4,7 +4,7 @@ class Solution {
         int l = 0;
         int max = 0;
         int num = 0;
-        if(k ==0)  return 0;
+        if(k ==0)  return 0; // this line is not necessary. 
         for(int i= 0; i < s.length(); i++) {
             char currentChar = s.charAt(i);
             chrFreq[currentChar]++;
@@ -14,7 +14,9 @@ class Solution {
                     chrFreq[s.charAt(l)]--;
                     l++;
                 }
-                //l++;
+
+                chrFreq[s.charAt(l)]--;
+                l++;
                 num--;
             }
             max = Math.max(max, i - l + 1);
