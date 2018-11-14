@@ -4,7 +4,8 @@ class Solution {
         // 2.check each string in the dict and update the coverage.
         // 3.based on the coverage, create a correct output. 
         // first
-        s = "aaa"; dict = new String[]{"a"};
+        // s = "aaa"; dict = new String[]{"a"};
+        // s = "abcdef"; dict = new String[]{"a","c", "e", "g"};
         int lengthOfString = s.length();
         int[] coverage = new int[lengthOfString];
         for(int i = 0; i< lengthOfString; i++){
@@ -18,55 +19,50 @@ class Solution {
             int currentPos = 0;
             while(currentPos < lengthOfString){
                 if(s.substring(currentPos).contains(dict[i])){
-                    int pos = s.indexOf(dict[i], currentPos) + currentPos;
+                    int pos = s.indexOf(dict[i], currentPos);
                     int lengthOfOneElement = dict[i].length();
                     for(int j = 0; j < lengthOfOneElement; j++){
                         coverage[pos + j] = 0;
                     }
                     currentPos++;
+                } else {
+                    break;
                 }
-                break;
             }    
         }
+
         // third
         String boldHead = "<b>";
         String boldTail = "</b>";
         String[] sArray = s.split("");
         StringBuilder res = new StringBuilder();
         for(int i = 0; i< lengthOfString; i++){
-            if(i == 0){
-                if(coverage[i] == 0){
+            if(i == 0 && coverage[i] == 0){
                     res.append(boldHead);
-                    res.append(sArray[i]);
-                }else {
-                    res.append(sArray[i]);
-                }
-                
-            }else if(i == lengthOfString -1) {
-                if(coverage[i] == 0){
-                    res.append(sArray[i]);
-                    res.append(boldTail);
-                }else {
-                    res.append(sArray[i]);
-                }
-            }else if(i<lengthOfString -1 ){
+            }
+
+            if(i<lengthOfString -1 ){
                 if(coverage[i] == 0 && coverage[i+1] == 1){
                     res.append(sArray[i]);
                     res.append(boldTail);
                 } else if(coverage[i] == 1 && coverage[i+1] == 0) {
                     res.append(sArray[i]);
                     res.append(boldHead);
-                } else if(coverage[i] == 1 && coverage[i+1] == 1) {
+                } else {
                     res.append(sArray[i]);
-                } else { // 0  0 
-                    res.append(sArray[i]);
-                }
-                
+                }  
+            } else {
+                res.append(sArray[i]);
+            }
+            
+            if(i == lengthOfString -1 && coverage[i] == 0) {
+                    res.append(boldTail);
             }
         }
         
-        //return res.toString();
+        return res.toString();
         // return String.valueOf(coverage);  // int[] intArray = { 1, 2, 3, 4 ,5 }; String str = Arrays. toString(intArray)
-        return Arrays.toString(coverage);
+        //return Arrays.toString(coverage);
+        //return String.valueOf(s.indexOf("a", 2));
     }
 }
