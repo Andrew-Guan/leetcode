@@ -6,5 +6,5 @@ To initialize an empty int array, it is int[] res = new int[0];
 
 method2:
 
-It said the complexity of this method is O(n). For the first method, it is O(nlogn).
+It said the complexity of this method is O(n)(O(m + n) where m and n are lengths of both the arrays.). For the first method, it is O(nlogn).
 But according to the running time I get, the first method is faster than the second one.
