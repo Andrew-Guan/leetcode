@@ -3,7 +3,7 @@ class Solution {
         if(s == null) return false;
         if(s.length() == 0) return true;
         int length = s.length();
-        Stack<Character> res = new Stack();
+        Stack<Character> res = new Stack<Character>();
         for(int i = 0; i< length; i++){
             if(s.charAt(i) == '(') {
                 res.push(s.charAt(i));
