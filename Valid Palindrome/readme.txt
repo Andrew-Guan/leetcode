@@ -9,3 +9,5 @@ StringBuilder res = new StringBuilder();
 res.reverse();
 res.toString();
 
+Another good way to determin a character is letter or number is:
+ boolean res = Character.isLetterOrDigit(char ch);
