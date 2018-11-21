@@ -11,7 +11,7 @@ class Solution {
         if(lists == null || lists.length == 0) return null;
         int num = lists.length;
         ListNode head = new ListNode(0);
-        ListNode connect = new ListNode(0);
+        ListNode connect = null;
         connect = head;
         while(true){
             int existNum = 0;
