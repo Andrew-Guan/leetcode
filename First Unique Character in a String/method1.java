@@ -2,7 +2,6 @@ class Solution {
     public int firstUniqChar(String s) {
         if(s == null || s.length() == 0) return -1;
         int length = s.length();
-        char res;
         for(int i = 0; i< length-1;i++){
             String subS = s.substring(i+1);
             if(s.charAt(i)!= '0') {
