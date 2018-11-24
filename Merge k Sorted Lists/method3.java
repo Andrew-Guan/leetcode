@@ -15,6 +15,7 @@ class Solution {
         connector = head;
         
         // Comparator<ListNode> listNodeComparator = new Comparator<ListNode>(){
+        //     @Override
         //     public int compare(ListNode L1,ListNode L2){
         //         if(L1.val < L2.val) {
         //             return -1;
@@ -25,7 +26,9 @@ class Solution {
         //         }
         //     }
         // };
-        PriorityQueue<ListNode> pq= new PriorityQueue<ListNode>(lists.size(),new Comparator<ListNode>(){
+        // PriorityQueue<ListNode> pq = new PriorityQueue<>(5, listNodeComparator);
+        
+        PriorityQueue<ListNode> pq= new PriorityQueue<ListNode>(5,new Comparator<ListNode>(){
             @Override
             public int compare(ListNode o1,ListNode o2){
                 if (o1.val<o2.val)
@@ -37,36 +40,19 @@ class Solution {
             }
         });
         
-        
-        
-        
-        PriorityQueue<ListNode> pq = new PriorityQueue<>(20, listNodeComparator);
         for(int i = 0; i< num; i++){
-            while(lists[i] != null){
+            if(lists[i] != null){
                 pq.add(lists[i]);
-                if(lists[i].next != null){
-                   lists[i] = lists[i].next; 
-                }
             }
         }
         while(pq.peek()!= null){
             ListNode tmp = pq.poll();
             connector.next = tmp;
             connector = tmp;
+            if(tmp.next != null){
+                pq.add(tmp.next);
+            }
         }
-        return head.next;
+        return head.next;        
     }
-
-
 }
-// class listNodeComparator implements Comparator<ListNode>{
-//     public int compare(ListNode L1,ListNode L2){
-//         if(L1.val < L2.val) {
-//             return -1;
-//         }else if(L1.val > L2.val){
-//             return 1;
-//         }else{
-//             return 0;
-//         }
-//     }
-// }
