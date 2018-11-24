@@ -28,12 +28,15 @@ class Solution {
             return head;
         }
         // the list has more than one item.
-        linkNode = linkNode.next;
-        while(linkNode.next != head.next){
+        boolean oneRound = false;
+        linkNode = head;
+        while(!oneRound){
             maxNode = (maxNode.val <= linkNode.val) ? linkNode : maxNode;
             minNode = (minNode.val >= linkNode.val) ? linkNode : minNode;
             linkNode = linkNode.next;
-        }
+            if(linkNode == head) oneRound = true;
+        }     
+        
         // if all of them have the same value
         if(maxNode.val == minNode.val){
             newNode.next = maxNode.next;
@@ -47,7 +50,7 @@ class Solution {
             return head;
         } else{
             linkNode = head;
-            boolean oneRound = false;
+            oneRound = false;
             while(!oneRound){
                 if(linkNode.val <= newNode.val && newNode.val <= linkNode.next.val){
                     newNode.next = linkNode.next;
