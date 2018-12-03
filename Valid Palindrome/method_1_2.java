@@ -33,7 +33,7 @@ class Solution {
         String sLow = s.toLowerCase();
         int sLength = sLow.length();
         for(int i = 0; i< sLength; i++){
-            if(checkIsAlphanumeric(sLow.charAt(i))){
+            if(Character.isLetterOrDigit(sLow.charAt(i))){
                 newString.append(sLow.charAt(i));
             }
         }
@@ -42,14 +42,5 @@ class Solution {
         if(first.equals(second)) return true;
         else return false;
     }
-    public boolean checkIsAlphanumeric(char c){
-        char c1 = 'a';
-        char c2 = 'z';
-        char c3 = 'A';
-        char c4 = 'Z';
-        char c5 = '0';
-        char c6 = '9';
-        if((c>=c1&& c<=c2)||(c>=c3&&c<=c4)||(c>=c5&&c<=c6)) return true;
-        else return false;
-    }
+
 }
