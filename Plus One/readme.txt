@@ -16,3 +16,8 @@ The correct one should be int[] res = new int[1]; res[0] = 1;
             System.arraycopy(res, 0, output, 0, 1);
             System.arraycopy(digits, 0, output, 1, length);
             ...
+
+
+method2:
+
+It is much cleaner. 
